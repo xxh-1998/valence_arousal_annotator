@@ -1,5 +1,6 @@
 from flask import Flask
-from flask.ext.mongoengine import MongoEngine
+# from flask.ext.mongoengine import MongoEngine
+from flask_mongoengine import MongoEngine
 from annotator.data import Data
 
 app = Flask(__name__)
