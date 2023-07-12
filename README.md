@@ -19,12 +19,29 @@ For more information about the tool, please check the [wiki](https://github.com/
 ![screenshot annotator](./images/annotator.png)
 
 
-## Install
+## Install————（20230712 xxh1998 Implementation version）
+
+### Platform
+（xxh1998）Ubuntu 22.04
 
 ### Pre-requisite:
 You need MongoDB installed.
 
+（xxh1998）The tutorial is as follows：
+
+1、https://www.runoob.com/mongodb/mongodb-linux-install.html
+
+2、https://blog.csdn.net/qq_37666892/article/details/111379218
+
 ### With conda
+（xxh1998）NOTE THAT:
+
+python==3.9
+
+pip install flask==1.1.4
+
+pip install markupsafe==2.0.1
+
 
 Clone the repository:
 ```
@@ -34,16 +51,22 @@ cd affect_annotation
 
 Create a virtual environment, activate it and get the requirements:
 ```
-conda create --name annotator python
+conda create --name annotator python==3.9
 source activate annotator
 pip install -r requirements.txt --user
+pip uninstall flask
+pip install flask==1.1.4
+pip install markupsafe==2.0.1
 ```
+
 
 ## Running the annotation tool in development mode:
 
-### Initialiasing the database and adding a new user (with admin rights):
+### (xxh1998)Initialiasing the database and adding a new user (with admin rights):
 ```
-python manage.py init username password -a 1
+python manage.py init
+#admin admin
+#python manage.py init username password -a 1
 ```
 
 ### Running the app in testing
@@ -68,9 +91,9 @@ More details on administrating the app in the [wiki](https://github.com/JeanKoss
 ## Saving the annotated data:
 
 ### Saving the whole database using mongo:
-To save the db in a file 
+(xxh1998)To save the db in a file 
 ``` bash
-mongoexport -d annotations -c annotation -o '/data/savefile.json'
+ mongoexport -d annotations -c annotation -o '/home/han/Phd_study/EmotionExp/annotation/valence_arousal_annotator/annotator/savefile.json'
 ```
 (here we are saving the collection annotation from the database annotations)
 
